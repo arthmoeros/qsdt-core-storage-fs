@@ -1,0 +1,24 @@
+{
+  "name": "qsdt-core-storage-fs",
+  "version": "0.0.0",
+  "description": "QSDT's File System Storage Implementation for Core",
+  "main": " ",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthmoeros/qsdt-core-storage-fs.git"
+  },
+  "author": "arthmoeros",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/arthmoeros/qsdt-core-storage-fs/issues"
+  },
+  "homepage": "https://github.com/arthmoeros/qsdt-core-storage-fs#readme",
+  "devDependencies": {
+    "@qsdt/common": "^2.0.2",
+    "@types/node": "^8.0.51"
+  }
+}
