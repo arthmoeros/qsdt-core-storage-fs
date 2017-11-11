@@ -1,6 +1,6 @@
 {
   "name": "qsdt-core-storage-fs",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "QSDT's File System Storage Implementation for Core",
   "main": " ",
   "scripts": {
