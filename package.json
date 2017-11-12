@@ -1,6 +1,6 @@
 {
-  "name": "qsdt-core-storage-fs",
-  "version": "0.0.2",
+  "name": "@qsdt/core-storage-fs",
+  "version": "0.0.1",
   "description": "QSDT's File System Storage Implementation for Core",
   "main": " ",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/arthmoeros/qsdt-core-storage-fs#readme",
   "devDependencies": {
-    "@qsdt/common": "^2.0.2",
+    "@qsdt/common": "^2.0.3",
     "@types/node": "^8.0.51"
   }
 }

@@ -5,7 +5,7 @@ import { fsConfigPath } from './file-system-manager.config';
 
 export class FileSystemFormManager extends FormManager {
 
-  public getFormsIndex(): string[] {
+  public async getFormsIndex(): Promise<string[]> {
     let configList: string[] = fs.readdirSync(fsConfigPath + "form/");
     let response: string[] = [];
     configList.forEach(config => {
@@ -15,17 +15,17 @@ export class FileSystemFormManager extends FormManager {
       }
       response.push(config.substring(0, jsonIndex));
     });
-    return response;
+    return Promise.resolve(response);
   }
 
-  public getForm(name: string): string {
+  public async getForm(name: string): Promise<string> {
     if (/[/\\]/.test(name)) {
-      throw new Error("400 ID is invalid");
+      return Promise.reject(new Error("400 ID is invalid"));
     }
     if (!fs.existsSync(`${fsConfigPath}form/${name}.json`)) {
-      throw new Error("404 Form Configuration does not exist");
+      return Promise.reject(new Error("404 Form Configuration does not exist"));
     }
-    return fs.readFileSync(fsConfigPath + "form/" + name + ".json").toString();
+    return Promise.resolve(fs.readFileSync(fsConfigPath + "form/" + name + ".json").toString());
   }
 
 }
