@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/arthmoeros/qsdt-core-storage-fs#readme",
   "devDependencies": {
+    "@types/js-yaml": "^3.11.2",
     "@qsdt/common": "^2.0.3",
     "@types/node": "^8.0.51"
   },
   "dependencies": {
-    "@types/js-yaml": "^3.11.2",
     "js-yaml": "^3.12.0"
   }
 }
