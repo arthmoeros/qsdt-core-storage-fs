@@ -1,6 +1,6 @@
 {
   "name": "@qsdt/core-storage-fs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "QSDT's File System Storage Implementation for Core",
   "main": " ",
   "scripts": {
@@ -20,5 +20,9 @@
   "devDependencies": {
     "@qsdt/common": "^2.0.3",
     "@types/node": "^8.0.51"
+  },
+  "dependencies": {
+    "@types/js-yaml": "^3.11.2",
+    "js-yaml": "^3.12.0"
   }
 }

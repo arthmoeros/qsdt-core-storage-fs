@@ -1,4 +1,5 @@
 import { BlueprintManager, BlueprintContainer } from '@qsdt/common';
+import * as yml from 'js-yaml';
 import * as fs from 'fs';
 
 import { fsConfigPath } from './file-system-manager.config';
@@ -6,11 +7,16 @@ import { fsConfigPath } from './file-system-manager.config';
 export class FileSystemBlueprintManager extends BlueprintManager {
 
   public async getBlueprint(name: string, task: string): Promise<BlueprintContainer> {
-    if (!fs.existsSync(`${fsConfigPath}blueprint/${name}.json`)) {
-      return Promise.reject(new Error(`500 Couldn't find a blueprint file at location: ${fsConfigPath}blueprint/${name}.json`));
+    let blueprintFile: string;
+    if (fs.existsSync(`${fsConfigPath}blueprint/${name}.yml`)) {
+      blueprintFile = JSON.stringify(yml.safeLoad(fs.readFileSync(`${fsConfigPath}blueprint/${name}.yml`).toString()));
+    }else{
+      if (!fs.existsSync(`${fsConfigPath}blueprint/${name}.json`)) {
+        return Promise.reject(new Error(`500 Couldn't find a blueprint file at location: ${fsConfigPath}blueprint/${name}.json`));
+      }
+      blueprintFile = fs.readFileSync(`${fsConfigPath}blueprint/${name}.json`).toString();
     }
-    let blueprintFile: Buffer = fs.readFileSync(`${fsConfigPath}blueprint/${name}.json`);
-    return Promise.resolve(new BlueprintContainer(name, blueprintFile.toString(), task));
+    return Promise.resolve(new BlueprintContainer(name, blueprintFile, task));
   }
 
   public async getBlueprintMaterial(blueprintName: string, materialLocation: string): Promise<string> {
